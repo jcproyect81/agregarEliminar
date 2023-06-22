@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ejemplo de Manipulación del DOM</title>
+</head>
+<body>
+  <div id="father">
+    <h2>ELEMENTOS</h2>
+  </div>
+
+  <button id="addButton">Agregar Elemento</button>
+  <button id="removeButton">Eliminar Elemento</button>
+
+  <script>
+    // Selección de elementos
+    const parentElement = document.getElementById("father");
+    const addButton = document.getElementById("addButton");
+    const removeButton = document.getElementById("removeButton");
+
+    //  agregar un elemento al DOM
+    function agregarElemento() {
+      const childElement = document.createElement("div");
+      childElement.textContent = "Nuevo elemento";
+      parentElement.appendChild(childElement);
+    }
+
+    //  eliminar  elemento 
+    function eliminarElemento() {
+      const childElements = parentElement.getElementsByTagName("div");
+      const lastChild = childElements[childElements.length - 1];
+      parentElement.removeChild(lastChild);
+    }
+
+    //  llamar a las funciones
+    addButton.addEventListener("click", agregarElemento);
+    removeButton.addEventListener("click", eliminarElemento);
+  </script>
+</body>
+</html>
